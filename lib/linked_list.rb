@@ -31,7 +31,7 @@ class LinkedList
 
   def insert(index, surname)
     current = @head
-
+    @count += 1
   (index - 1).times do
     if current.nil?
     current = current.next_node
@@ -41,8 +41,6 @@ class LinkedList
   new_node = Node.new(surname)
   new_node.next_node = current.next_node
   current.next_node = new_node
-
-
   end
 
   def to_string
@@ -53,6 +51,15 @@ class LinkedList
       string << ", followed by the #{current.surname} family"
     end
     string
+  end
+
+  def find(position, number)
+    current = @head
+    string = ""
+    position.times do
+      current = current.next_node
+    end
+    string << "The #{current.surname} family"
   end
 
 end

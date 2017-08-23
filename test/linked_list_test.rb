@@ -127,15 +127,27 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, list.count
   end
 
-  def test_for_insert_method
+  def test_for_insert_method_to_string_and_count
+    list = LinkedList.new
+    # binding.pry
+    list.append("Brooks")
+    list.append("Henderson")
+    list.prepend("McKinney")
+    list.insert(1, "Lawson")
+
+    assert_equal 4, list.count
+    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", list.to_string
+  end
+
+  def test_for_find
     list = LinkedList.new
     list.append("Brooks")
     list.append("Henderson")
     list.prepend("McKinney")
     list.insert(1, "Lawson")
-    # binding.pry
-    assert_equal 4, list.count
-    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", list.to_string
+
+    assert_equal "The Brooks family", list.find(2, 1)
+    assert_equal "The Lawson family, followed by the Brooks family, followed by the Henderson family", list.find(1, 3)
   end
 
 end
