@@ -15,12 +15,44 @@ class LinkedList
       @head = Node.new(surname)
     elsif @head != nil
       @head.next_node = Node.new(surname)
-      @count += 1
     end
   end
 
+  def prepend(surname)
+    @count += 1
+    if @head.nil?
+      @head = Node.new(surname)
+    else
+      old = @head
+      @head = Node.new(surname)
+      @head.next_node = old
+    end
+  end
+
+  def insert(index, surname)
+    current = @head
+
+  (index - 1).times do
+    if current.nil?
+    current = current.next_node
+    end
+  end
+
+  new_node = Node.new(surname)
+  new_node.next_node = current.next_node
+  current.next_node = new_node
+
+
+  end
+
   def to_string
-    "The #{head.surname} family"
+    current = @head
+    string = "The #{current.surname} family"
+    while current.next_node != nil
+      current = current.next_node
+      string << ", followed by the #{current.surname} family"
+    end
+    string
   end
 
 end
