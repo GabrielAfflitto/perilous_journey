@@ -60,6 +60,11 @@ class LinkedList
       current = current.next_node
     end
     string << "The #{current.surname} family"
+    (number - 1).times do
+      current = current.next_node
+      string = string + ", followed by the #{current.surname} family"
+    end
+    string
   end
 
 end

@@ -150,4 +150,14 @@ class LinkedListTest < Minitest::Test
     assert_equal "The Lawson family, followed by the Brooks family, followed by the Henderson family", list.find(1, 3)
   end
 
+  def test_for_includes
+    list = LinkedList.new
+    list.append("Brooks")
+    list.append("Henderson")
+    list.prepend("McKinney")
+    list.insert(1, "Lawson")
+
+    assert_equal 
+  end
+
 end
