@@ -22,7 +22,7 @@ class LinkedListTest < Minitest::Test
     list = LinkedList.new
 
     list.append("West")
-    # binding.pry
+
     assert_equal "West", list.head.surname
   end
 
@@ -169,11 +169,17 @@ class LinkedListTest < Minitest::Test
     list.append("Henderson")
     list.prepend("McKinney")
     list.insert(1, "Lawson")
-    list.pop
-    list.pop
+    # list.pop
+    # list.pop
 
     assert_equal "Henderson", list.pop
-    # assert_equal "Brooks", list.pop
+    assert_equal "Brooks", list.pop
+    assert_equal "The McKinney family, followed by the Lawson family", list.to_string
+  end
+
+  def test_to_string_again
+
+
   end
 
 end

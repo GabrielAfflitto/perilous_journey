@@ -84,13 +84,13 @@ class LinkedList
 
   def pop
     current = @head
-    until current.next_node.nil?
+    until current.next_node.next_node.nil?
       current = current.next_node
-      if current.next_node.nil?
-        current.surname
-      end
     end
-    current.surname
+      dysentery = current.next_node.surname
+      current.next_node = nil
+      dysentery
+
   end
 
 end

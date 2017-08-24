@@ -19,16 +19,24 @@ class WagonTrainTest < Minitest::Test
   def test_for_append_method
     wt = WagonTrain.new
     wt.append("Burke")
-
+    # binding.pry
     assert_equal "Burke", wt.list.head.surname
   end
 
   def test_west_can_be_appended
-    skip
     wt = WagonTrain.new
+    wt.append("Burke")
     wt.append("West")
 
     assert_equal "West", wt.list.head.next_node.surname
+  end
+
+  def test_the_count_is_2
+    wt = WagonTrain.new
+    wt.append("Burke")
+    wt.append("West")
+    
+    assert_equal 2, wt.count
   end
 
 end
