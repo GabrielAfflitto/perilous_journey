@@ -24,10 +24,11 @@ class WagonTrainTest < Minitest::Test
   end
 
   def test_west_can_be_appended
+    skip
     wt = WagonTrain.new
     wt.append("West")
 
-    assert_equal "West", 
+    assert_equal "West", wt.list.head.next_node.surname
   end
 
 end

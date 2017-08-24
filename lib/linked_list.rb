@@ -15,7 +15,7 @@ class LinkedList
     if @head.nil?
       @head = Node.new(surname)
     else
-      until current_node.next_node == nil
+      until current_node.next_node.nil?
         current_node = current_node.next_node
       end
       current_node.next_node = Node.new(surname)
@@ -80,6 +80,17 @@ class LinkedList
         return true
       end
     end
+  end
+
+  def pop
+    current = @head
+    until current.next_node.nil?
+      current = current.next_node
+      if current.next_node.nil?
+        current.surname
+      end
+    end
+    current.surname
   end
 
 end

@@ -163,4 +163,17 @@ class LinkedListTest < Minitest::Test
     refute list.includes?("Chapman")
   end
 
+  def test_for_pop_method
+    list = LinkedList.new
+    list.append("Brooks")
+    list.append("Henderson")
+    list.prepend("McKinney")
+    list.insert(1, "Lawson")
+    list.pop
+    list.pop
+
+    assert_equal "Henderson", list.pop
+    # assert_equal "Brooks", list.pop
+  end
+
 end
