@@ -93,9 +93,11 @@ class LinkedListTest < Minitest::Test
 
     list.append("Brooks")
     list.append("Henderson")
+    list.append("Lucy")
 
     assert_equal "Brooks", list.head.surname
     assert_equal "Henderson", list.head.next_node.surname
+    assert_equal "Lucy", list.head.next_node.next_node.surname
   end
 
   def test_list_can_be_prepended
@@ -157,7 +159,8 @@ class LinkedListTest < Minitest::Test
     list.prepend("McKinney")
     list.insert(1, "Lawson")
 
-    assert_equal 
+    assert list.includes?("Brooks")
+    refute list.includes?("Chapman")
   end
 
 end

@@ -11,10 +11,14 @@ class LinkedList
 
   def append(surname)
     @count += 1
+    current_node = @head
     if @head.nil?
       @head = Node.new(surname)
-    elsif @head != nil
-      @head.next_node = Node.new(surname)
+    else
+      until current_node.next_node == nil
+        current_node = current_node.next_node
+      end
+      current_node.next_node = Node.new(surname)
     end
   end
 
@@ -65,6 +69,17 @@ class LinkedList
       string = string + ", followed by the #{current.surname} family"
     end
     string
+  end
+
+  def includes?(surname)
+    current = @head
+    until current.next_node.nil?
+      false
+      current = current.next_node
+      if current.surname == surname
+        return true
+      end
+    end
   end
 
 end
